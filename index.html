@@ -5,37 +5,29 @@
 <title>3DJV</title>
 
 <style>
-
 body{
-font-family: Arial;
+font-family:Arial;
 background:#f4f4f4;
-margin:0;
 text-align:center;
+margin:0;
 }
 
 header{
-background:#2c3e50;
+background:#222;
 color:white;
-padding:30px;
+padding:25px;
 }
 
-.products{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:30px;
-padding:40px;
-}
-
-.card{
+.product{
 background:white;
+margin:40px auto;
 padding:20px;
-border-radius:12px;
+width:320px;
+border-radius:10px;
 box-shadow:0 0 10px rgba(0,0,0,0.1);
-width:260px;
 }
 
-.card img{
+img{
 width:100%;
 border-radius:10px;
 }
@@ -46,23 +38,31 @@ font-weight:bold;
 margin:5px;
 }
 
-</style>
+a{
+display:inline-block;
+margin-top:15px;
+padding:10px 15px;
+background:#ff6600;
+color:white;
+text-decoration:none;
+border-radius:6px;
+}
 
+</style>
 </head>
 
 <body>
 
 <header>
 <h1>3DJV</h1>
-<p>3D tisknuté výrobky</p>
+<p>3D tištěné výrobky</p>
 </header>
 
-<div class="products">
+<div class="product">
 
-<div class="card">
-<img src="kralici.jpg
-  ">
-<h3>Velikonoční králíci</h3>
+<img src="kralici.jpg.png">
+
+<h2>Velikonoční králíci</h2>
 
 <p>Malý králík</p>
 <div class="price">35 Kč</div>
@@ -70,7 +70,9 @@ margin:5px;
 <p>Velký králík</p>
 <div class="price">45 Kč</div>
 
-</div>
+<a href="https://www.thingiverse.com" target="_blank">
+Model z Thingiverse
+</a>
 
 </div>
 
