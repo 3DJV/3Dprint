@@ -1,84 +1,127 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
-<title>3DJV</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Print - 3DJV</title>
 
-<style>
-.thingiverse-link{
-position:fixed;
-top:10px;
-left:10px;
-background:#ff6a00;
-color:white;
-padding:10px 15px;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-}
-    body{
-<a class="thingiverse-link" href="https://www.thingiverse.com" target="_blank">
-Thingiverse
-</a>
-    font-family: Arial;
-    background:#f0f0f0;
-    margin:0;
-    text-align:center;
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
 
-header{
-    background:#222;
-    color:white;
-    padding:40px;
-}
+        /* Horní lišta */
+        header {
+            background-color: #1e1e1e;
+            padding: 15px 0;
+        }
 
-.product{
-    background:white;
-    width:300px;
-    margin:40px auto;
-    padding:20px;
-    border-radius:10px;
-}
+        nav {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
 
-button{
-    background:#ff6a00;
-    border:none;
-    color:white;
-    padding:12px 20px;
-    font-size:16px;
-    border-radius:8px;
-    cursor:pointer;
-}
-</style>
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
 
+        nav a:hover {
+            color: #00bcd4;
+        }
+
+        /* Hlavní obsah */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .card {
+            background: #f9f9f9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1e1e1e;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #00bcd4;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1e1e1e;
+            color: white;
+            margin-top: 40px;
+        }
+
+        /* Mobil */
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-<h1>3DJV</h1>
-<p>3D tištěné výrobky</p>
+    <nav>
+        <a href="/3Dprint/">Domů</a>
+        <a href="/3Dprint/vanoce/">Vánoce</a>
+        <a href="/3Dprint/velikonoce/">Velikonoce</a>
+    </nav>
 </header>
 
-<div class="product">
+<div class="container">
+    <h1>🎄 3D Tisk Modely</h1>
+    <p>Vítej na webu s 3D modely ke stažení.</p>
 
-<img src="kralik.jpg" width="250">
+    <div class="card">
+        <h2>Vánoční modely</h2>
+        <p>Najdeš zde vánoční dekorace a modely.</p>
+        <a class="btn" href="/3Dprint/vanoce/">Otevřít</a>
+    </div>
 
-<h2>Velikonoční králíci</h2>
-
-<p>Malý králík</p>
-<b>35 Kč</b>
-
-<p>Velký králík</p>
-<b>45 Kč</b>
-
-<br><br>
-
-<a href="https://www.thingiverse.com" target="_blank">
-<button>Model z Thingiverse</button>
-</a>
+    <div class="card">
+        <h2>Velikonoční modely</h2>
+        <p>Modely s velikonoční tématikou.</p>
+        <a class="btn" href="/3Dprint/velikonoce/">Otevřít</a>
+    </div>
 
 </div>
+
+<footer>
+    © 2026 3DJV | GitHub Pages
+</footer>
 
 </body>
 </html>
