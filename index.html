@@ -3,26 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3DJV</title>
+<title>3DJV E-SHOP</title>
 
 <style>
 body{
-    font-family: Arial, sans-serif;
-    background:#f2f2f2;
     margin:0;
-    text-align:center;
+    font-family:Arial, sans-serif;
+    background:#f4f4f4;
 }
 
-/* Horní menu */
-nav{
-    background:#222;
+/* Horní lišta */
+.topbar{
+    background:#111;
+    color:white;
     padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.topbar h1{
+    margin:0;
+    font-size:20px;
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    margin:0 20px;
+    margin:0 15px;
     font-weight:bold;
 }
 
@@ -30,49 +39,72 @@ nav a:hover{
     color:#ff6a00;
 }
 
-/* Header */
-header{
-    background:#333;
-    color:white;
-    padding:40px 20px;
+/* Vyhledávání */
+.search{
+    margin:20px;
 }
 
-/* Produktová karta */
-.product{
-    background:white;
-    width:320px;
-    margin:40px auto;
+.search input{
+    padding:10px;
+    width:250px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+/* Produkty */
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:20px;
     padding:20px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    padding:15px;
     border-radius:12px;
     box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
 }
 
-.product img{
-    width:250px;
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card img{
+    width:100%;
     border-radius:10px;
 }
 
-/* Tlačítko */
+.price{
+    font-size:18px;
+    font-weight:bold;
+    color:#ff6a00;
+}
+
 button{
     background:#ff6a00;
     border:none;
     color:white;
-    padding:12px 20px;
-    font-size:16px;
+    padding:10px 15px;
     border-radius:8px;
     cursor:pointer;
-    transition:0.3s;
+    margin-top:10px;
 }
 
 button:hover{
     background:#e65c00;
 }
 
-/* Mobil */
-@media (max-width:600px){
-    .product{
-        width:90%;
-    }
+/* Footer */
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
 }
 </style>
 
@@ -80,37 +112,42 @@ button:hover{
 
 <body>
 
-<!-- MENU -->
-<nav>
-    <a href="/3Dprint/">Domů</a>
-    <a href="/3Dprint/vanoce/">Vánoce</a>
-    <a href="/3Dprint/velikonoce/">Velikonoce</a>
-</nav>
+<div class="topbar">
+    <h1>🛒 3DJV E-SHOP</h1>
+    <nav>
+        <a href="/3Dprint/">Domů</a>
+        <a href="/3Dprint/vanoce/">Vánoce</a>
+        <a href="/3Dprint/velikonoce/">Velikonoce</a>
+    </nav>
+</div>
 
-<header>
-<h1>3DJV</h1>
-<p>3D tištěné výrobky</p>
-</header>
+<div class="search">
+    <input type="text" placeholder="Hledat produkty...">
+</div>
 
-<div class="product">
+<div class="products">
 
-<img src="kralik.jpg" alt="Velikonoční králík">
+    <div class="card">
+        <img src="kralik.jpg" alt="Velikonoční králík">
+        <h3>Velikonoční králík</h3>
+        <p>Malý dekorativní model</p>
+        <p class="price">35 Kč</p>
+        <button>Koupit</button>
+    </div>
 
-<h2>Velikonoční králíci</h2>
-
-<p>Malý králík</p>
-<b>35 Kč</b>
-
-<p>Velký králík</p>
-<b>45 Kč</b>
-
-<br><br>
-
-<a href="https://www.thingiverse.com" target="_blank">
-<button>Model z Thingiverse</button>
-</a>
+    <div class="card">
+        <img src="kralik.jpg" alt="Velikonoční králík velký">
+        <h3>Velikonoční králík velký</h3>
+        <p>Větší verze modelu</p>
+        <p class="price">45 Kč</p>
+        <button>Koupit</button>
+    </div>
 
 </div>
+
+<footer>
+© 2026 3DJV | 3D tisk výrobky
+</footer>
 
 </body>
 </html>
