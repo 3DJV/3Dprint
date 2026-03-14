@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - 3DJV</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:#f4f4f4;
+    text-align:center;
+    padding:30px;
+}
+
+input{
+    padding:10px;
+    margin:8px;
+    width:250px;
+}
+
+button{
+    padding:10px 15px;
+    background:#111;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Admin - Přidat produkt</h1>
+
+<input id="name" placeholder="Název"><br>
+<input id="desc" placeholder="Popis"><br>
+<input id="price" placeholder="Cena"><br>
+<input id="image" placeholder="Obrázek (např. kralik.jpg)"><br>
+
+<button onclick="addProduct()">Přidat</button>
+
+<script>
+function addProduct(){
+    let products = JSON.parse(localStorage.getItem("products")) || [];
+
+    products.push({
+        name: document.getElementById("name").value,
+        description: document.getElementById("desc").value,
+        price: document.getElementById("price").value,
+        image: document.getElementById("image").value
+    });
+
+    localStorage.setItem("products", JSON.stringify(products));
+    alert("Produkt přidán!");
+}
+</script>
+
+</body>
+</html>
