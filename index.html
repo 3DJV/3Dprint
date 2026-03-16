@@ -7,9 +7,9 @@
 
 <style>
 *{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body{
@@ -44,46 +44,43 @@ nav a:hover{
   text-decoration:underline;
 }
 
-/* ===== HERO ===== */
-.hero{
-  padding:60px 20px;
-  text-align:center;
+/* ===== HOME ===== */
+#home{
   background:white;
+  padding:40px 20px;
+  text-align:center;
 }
 
-.hero h2{
-  font-size:32px;
-  margin-bottom:10px;
+#home h2{
+  margin-bottom:20px;
 }
 
-/* ===== VELIKONOCE SECTION ===== */
+.main-photo{
+  max-width:900px;
+  margin:0 auto;
+}
+
+.main-photo img{
+  width:100%;
+  border-radius:12px;
+}
+
+/* ===== VELIKONOCE ===== */
 #velikonoce{
   display:none;
   padding:40px;
 }
 
-/* layout */
 .vel-layout{
   display:flex;
   gap:30px;
   align-items:flex-start;
 }
 
-/* right image */
-.vel-image{
-  flex:1;
-}
-
-.vel-image img{
-  width:100%;
-  border-radius:12px;
-}
-
-/* products grid */
 .products{
   flex:2;
   display:grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:20px;
 }
 
@@ -105,7 +102,16 @@ nav a:hover{
   margin-top:8px;
 }
 
-/* footer */
+.vel-image{
+  flex:1;
+}
+
+.vel-image img{
+  width:100%;
+  border-radius:12px;
+}
+
+/* ===== FOOTER ===== */
 footer{
   background:#111;
   color:white;
@@ -114,19 +120,19 @@ footer{
   margin-top:40px;
 }
 
-/* responsive */
-@media (max-width:900px){
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
   .vel-layout{
     flex-direction:column;
   }
   .products{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 }
 
-@media (max-width:500px){
+@media(max-width:500px){
   .products{
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
   }
 }
 </style>
@@ -142,59 +148,57 @@ footer{
   </nav>
 </header>
 
-<section class="hero" id="home">
+<!-- HOME -->
+<section id="home">
   <h2>Moderní 3D tištěné produkty</h2>
-  <p>Kvalitní výrobky z 3D tiskárny</p>
+  <div class="main-photo">
+    <img src="jirka.jpg" alt="3D tisk">
+  </div>
 </section>
 
+<!-- VELIKONOCE -->
 <section id="velikonoce">
   <div class="vel-layout">
 
-    <!-- PRODUCTS -->
+    <!-- PRODUKTY -->
     <div class="products">
 
       <div class="product">
-        <img src="kralici.png">
         <p>Malý králík</p>
         <div class="price">35 Kč</div>
       </div>
 
       <div class="product">
-        <img src="kralici.png">
         <p>Velký králík</p>
         <div class="price">45 Kč</div>
       </div>
 
-      <!-- kopírováním přidáš další produkty -->
+      <!-- další produkty jen kopírováním -->
       <div class="product">
-        <img src="kralici.png">
         <p>Králík – barva na přání</p>
         <div class="price">50 Kč</div>
       </div>
 
       <div class="product">
-        <img src="kralici.png">
         <p>Králík XL</p>
         <div class="price">60 Kč</div>
       </div>
 
       <div class="product">
-        <img src="kralici.png">
-        <p>Králík sada</p>
+        <p>Sada králíků</p>
         <div class="price">90 Kč</div>
       </div>
 
       <div class="product">
-        <img src="kralici.png">
         <p>Králík dekorace</p>
         <div class="price">40 Kč</div>
       </div>
 
     </div>
 
-    <!-- IMAGE -->
+    <!-- OBRÁZEK VPRAVO -->
     <div class="vel-image">
-      <img src="kralici.png">
+      <img src="kralik.jpg" alt="Velikonoční králík">
     </div>
 
   </div>
@@ -205,14 +209,14 @@ footer{
 </footer>
 
 <script>
+function showHome(){
+  document.getElementById("home").style.display="block";
+  document.getElementById("velikonoce").style.display="none";
+}
+
 function showEaster(){
   document.getElementById("home").style.display="none";
   document.getElementById("velikonoce").style.display="block";
-}
-
-function showHome(){
-  document.getElementById("velikonoce").style.display="none";
-  document.getElementById("home").style.display="block";
 }
 </script>
 
