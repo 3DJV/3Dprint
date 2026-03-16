@@ -6,16 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-.product img{
-  width:380px;      /* cca 10 cm */
-  max-width:100%;   /* aby to fungovalo na mobilu */
-  border-radius:8px;
-  cursor:pointer;
-  margin:0 auto;
-  display:block;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
-
-  *{box-sizing:border-box;margin:0;padding:0;}
 
 body{
   font-family: Arial, sans-serif;
@@ -33,7 +28,9 @@ header{
   align-items:center;
 }
 
-header h1{font-size:22px;}
+header h1{
+  font-size:22px;
+}
 
 nav a{
   color:white;
@@ -72,13 +69,14 @@ nav a{
   border-radius:12px;
 }
 
-/* PRODUCTS */
+/* PRODUCTS GRID */
 .products{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:25px;
 }
 
+/* PRODUCT CARD */
 .product{
   background:white;
   padding:15px;
@@ -88,9 +86,12 @@ nav a{
 }
 
 .product img{
-  width:100%;
+  width:380px;        /* cca 10 cm */
+  max-width:100%;
   border-radius:8px;
   cursor:pointer;
+  margin:0 auto 10px;
+  display:block;
 }
 
 .product h3{
@@ -143,12 +144,18 @@ footer{
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .page-header{flex-direction:column;}
-  .products{grid-template-columns:repeat(2,1fr);}
+  .page-header{
+    flex-direction:column;
+  }
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
 }
 
 @media(max-width:500px){
-  .products{grid-template-columns:1fr;}
+  .products{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -175,31 +182,32 @@ footer{
       <p>3D tištěné velikonoční dekorace a králíci.</p>
     </div>
     <div class="category-image">
-      
+      <img src="kralik.jpg" alt="Velikonoce">
     </div>
   </div>
 
-  <div class="product">
-  <img src="kralik.jpg" alt="Malý králík">
-
-  <h3>Malý králík</h3>
-  <div class="price">35 Kč</div>
-  <a class="order-btn" href="mailto:vaskoj@seznam.cz?subject=Objednávka – Malý králík">Objednat</a>
-</div>
-
+  <!-- PRODUKTY -->
+  <div class="products">
 
     <div class="product">
-      
-      <h3>Velký králík</h3>
-      <div class="price">45 Kč</div>
-      <a class="order-btn" href="mailto:   vaskoj@seznam.cz ?subject=Objednávka – Velký králík">Objednat</a>
+      <img src="kralik.jpg" alt="Malý králík" onclick="openLightbox(this.src)">
+      <h3>Malý králík</h3>
+      <div class="price">35 Kč</div>
+      <a class="order-btn" href="mailto:vaskoj@seznam.cz?subject=Objednávka – Malý králík">Objednat</a>
     </div>
 
     <div class="product">
-      
+      <img src="kralik.jpg" alt="Velký králík" onclick="openLightbox(this.src)">
+      <h3>Velký králík</h3>
+      <div class="price">45 Kč</div>
+      <a class="order-btn" href="mailto:vaskoj@seznam.cz?subject=Objednávka – Velký králík">Objednat</a>
+    </div>
+
+    <div class="product">
+      <img src="kralik.jpg" alt="Králík XL" onclick="openLightbox(this.src)">
       <h3>Králík XL</h3>
       <div class="price">60 Kč</div>
-      <a class="order-btn" href="mailto:   vaskoj@seznam.cz ?subject=Objednávka – Králík XL">Objednat</a>
+      <a class="order-btn" href="mailto:vaskoj@seznam.cz?subject=Objednávka – Králík XL">Objednat</a>
     </div>
 
   </div>
@@ -212,19 +220,4 @@ footer{
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img">
-</div>
-
-<script>
-function openLightbox(src){
-  document.getElementById("lightbox-img").src = src;
-  document.getElementById("lightbox").style.display = "flex";
-}
-
-function closeLightbox(){
-  document.getElementById("lightbox").style.display = "none";
-}
-</script>
-
-</body>
-</html>
+  <img id="lightbox-img
