@@ -2,57 +2,225 @@
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
+<title>3DJV</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin - 3DJV</title>
 
 <style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
 body{
-    font-family:Arial;
-    background:#f4f4f4;
-    text-align:center;
-    padding:30px;
+  font-family: Arial, sans-serif;
+  background:#f4f4f4;
+  color:#333;
 }
 
-input{
-    padding:10px;
-    margin:8px;
-    width:250px;
+/* ===== HEADER ===== */
+header{
+  background:#111;
+  color:white;
+  padding:15px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-button{
-    padding:10px 15px;
-    background:#111;
-    color:white;
-    border:none;
-    cursor:pointer;
+header h1{
+  font-size:22px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+nav a:hover{
+  text-decoration:underline;
+}
+
+/* ===== HOME ===== */
+#home{
+  background:white;
+  padding:40px 20px;
+  text-align:center;
+}
+
+#home h2{
+  margin-bottom:20px;
+}
+
+.main-photo{
+  max-width:900px;
+  margin:0 auto;
+}
+
+.main-photo img{
+  width:100%;
+  border-radius:12px;
+}
+
+/* ===== VELIKONOCE ===== */
+#velikonoce{
+  display:none;
+  padding:40px;
+}
+
+.vel-layout{
+  display:flex;
+  gap:30px;
+  align-items:flex-start;
+}
+
+.products{
+  flex:2;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.product{
+  background:white;
+  padding:15px;
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  text-align:center;
+}
+
+.product img{
+  width:100%;
+  border-radius:8px;
+}
+
+.price{
+  font-weight:bold;
+  margin-top:8px;
+}
+
+.vel-image{
+  flex:1;
+}
+
+.vel-image img{
+  width:100%;
+  border-radius:12px;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:15px;
+  margin-top:40px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .vel-layout{
+    flex-direction:column;
+  }
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:500px){
+  .products{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<h1>Admin - Přidat produkt</h1>
+<header>
+  <h1>3DJV</h1>
+  <nav>
+    <a onclick="showHome()">Domů</a>
+    <a onclick="showEaster()">Velikonoce</a>
+  </nav>
+</header>
 
-<input id="name" placeholder="Název"><br>
-<input id="desc" placeholder="Popis"><br>
-<input id="price" placeholder="Cena"><br>
-<input id="image" placeholder="Obrázek (např. kralik.jpg)"><br>
+<!-- HOME -->
+<section id="home">
+  <h2>Moderní 3D tištěné produkty</h2>
+  <div class="main-photo">
+    <img src="jirka.jpg" alt="3DJV">
+  </div>
+</section>
 
-<button onclick="addProduct()">Přidat</button>
+<!-- VELIKONOCE -->
+<section id="velikonoce">
+  <div class="vel-layout">
+
+    <div class="products">
+
+      <div class="product">
+        
+        <p>Malý králík</p>
+        <div class="price">35 Kč</div>
+      </div>
+
+      <div class="product">
+        
+        <p>Velký králík</p>
+        <div class="price">45 Kč</div>
+      </div>
+
+      <!-- další produkty kopírováním -->
+      <div class="product">
+        
+        <p>Králík – barva na přání</p>
+        <div class="price">50 Kč</div>
+      </div>
+
+      <div class="product">
+        
+        <p>Králík XL</p>
+        <div class="price">60 Kč</div>
+      </div>
+
+      <div class="product">
+        
+        <p>Sada králíků</p>
+        <div class="price">90 Kč</div>
+      </div>
+
+      <div class="product">
+        
+        <p>Králík dekorace</p>
+        <div class="price">40 Kč</div>
+      </div>
+
+    </div>
+
+    <div class="vel-image">
+      <img src="kralici.jpg" alt="Velikonoční králíci">
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 3DJV
+</footer>
 
 <script>
-function addProduct(){
-    let products = JSON.parse(localStorage.getItem("products")) || [];
+function showHome(){
+  document.getElementById("home").style.display="block";
+  document.getElementById("velikonoce").style.display="none";
+}
 
-    products.push({
-        name: document.getElementById("name").value,
-        description: document.getElementById("desc").value,
-        price: document.getElementById("price").value,
-        image: document.getElementById("image").value
-    });
-
-    localStorage.setItem("products", JSON.stringify(products));
-    alert("Produkt přidán!");
+function showEaster(){
+  document.getElementById("home").style.display="none";
+  document.getElementById("velikonoce").style.display="block";
 }
 </script>
 
