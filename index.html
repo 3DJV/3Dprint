@@ -14,7 +14,7 @@ body{
   color:#333;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 header{
   background:#111;
   color:white;
@@ -31,28 +31,24 @@ nav a{
   text-decoration:none;
   margin-left:20px;
   font-weight:bold;
-  cursor:pointer;
 }
 
-/* ===== PAGE ===== */
+/* PAGE */
 .page{
   max-width:1200px;
   margin:30px auto;
   padding:0 20px;
 }
 
-/* breadcrumb */
 .breadcrumb{
   font-size:14px;
   margin-bottom:20px;
   color:#777;
 }
 
-/* title */
 .page-header{
   display:flex;
   justify-content:space-between;
-  align-items:flex-start;
   gap:30px;
   margin-bottom:40px;
 }
@@ -62,18 +58,12 @@ nav a{
   margin-bottom:10px;
 }
 
-.page-header p{
-  max-width:500px;
-  color:#666;
-}
-
-/* category image */
 .category-image img{
   width:300px;
   border-radius:12px;
 }
 
-/* ===== PRODUCTS ===== */
+/* PRODUCTS */
 .products{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -91,6 +81,7 @@ nav a{
 .product img{
   width:100%;
   border-radius:8px;
+  cursor:pointer;
 }
 
 .product h3{
@@ -99,10 +90,40 @@ nav a{
 
 .price{
   font-weight:bold;
-  color:#000;
+  margin-bottom:10px;
 }
 
-/* ===== FOOTER ===== */
+.order-btn{
+  display:inline-block;
+  background:#ff7a00;
+  color:white;
+  padding:8px 14px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* LIGHTBOX */
+.lightbox{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:10px;
+}
+
+/* FOOTER */
 footer{
   background:#111;
   color:white;
@@ -111,23 +132,14 @@ footer{
   margin-top:50px;
 }
 
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media(max-width:900px){
-  .page-header{
-    flex-direction:column;
-  }
-  .category-image img{
-    width:100%;
-  }
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
+  .page-header{flex-direction:column;}
+  .products{grid-template-columns:repeat(2,1fr);}
 }
 
 @media(max-width:500px){
-  .products{
-    grid-template-columns:1fr;
-  }
+  .products{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -151,9 +163,8 @@ footer{
   <div class="page-header">
     <div>
       <h2>Velikonoce</h2>
-      <p>Dekorace a 3D tištěné výrobky s velikonoční tematikou. Ideální jako výzdoba nebo malý dárek.</p>
+      <p>3D tištěné velikonoční dekorace a králíci.</p>
     </div>
-
     <div class="category-image">
       
     </div>
@@ -165,36 +176,21 @@ footer{
       
       <h3>Malý králík</h3>
       <div class="price">35 Kč</div>
+      <a class="order-btn" href="mailto:TVUJEMAIL@email.cz?subject=Objednávka – Malý králík">Objednat</a>
     </div>
 
     <div class="product">
       
       <h3>Velký králík</h3>
       <div class="price">45 Kč</div>
+      <a class="order-btn" href="mailto:TVUJEMAIL@email.cz?subject=Objednávka – Velký králík">Objednat</a>
     </div>
 
     <div class="product">
       
       <h3>Králík XL</h3>
       <div class="price">60 Kč</div>
-    </div>
-
-    <div class="product">
-      
-      <h3>Králík barevný</h3>
-      <div class="price">50 Kč</div>
-    </div>
-
-    <div class="product">
-      
-      <h3>Sada králíků</h3>
-      <div class="price">90 Kč</div>
-    </div>
-
-    <div class="product">
-      
-      <h3>Velikonoční dekorace</h3>
-      <div class="price">40 Kč</div>
+      <a class="order-btn" href="mailto:TVUJEMAIL@email.cz?subject=Objednávka – Králík XL">Objednat</a>
     </div>
 
   </div>
@@ -204,6 +200,22 @@ footer{
 <footer>
   © 2026 3DJV
 </footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+
+<script>
+function openLightbox(src){
+  document.getElementById("lightbox-img").src = src;
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeLightbox(){
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
 
 </body>
 </html>
