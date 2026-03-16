@@ -2,107 +2,132 @@
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
+<title>3DJV</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3DJV Shop</title>
 
 <style>
-body{
-    margin:0;
-    font-family: 'Segoe UI', sans-serif;
-    background:#f5f7fa;
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* HEADER */
+body{
+  font-family: Arial, sans-serif;
+  background:#f4f4f4;
+  color:#333;
+}
+
+/* ===== HEADER ===== */
 header{
-    background: linear-gradient(90deg,#111,#333);
-    color:white;
-    padding:25px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
+  background:#111;
+  color:white;
+  padding:15px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 header h1{
-    margin:0;
+  font-size:22px;
 }
 
-/* MENU */
 nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 15px;
-    font-weight:500;
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 nav a:hover{
-    color:#ff6a00;
+  text-decoration:underline;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
-    text-align:center;
-    padding:40px 20px;
+  padding:60px 20px;
+  text-align:center;
+  background:white;
 }
 
 .hero h2{
-    font-size:32px;
+  font-size:32px;
+  margin-bottom:10px;
 }
 
-/* PRODUKTY */
+/* ===== VELIKONOCE SECTION ===== */
+#velikonoce{
+  display:none;
+  padding:40px;
+}
+
+/* layout */
+.vel-layout{
+  display:flex;
+  gap:30px;
+  align-items:flex-start;
+}
+
+/* right image */
+.vel-image{
+  flex:1;
+}
+
+.vel-image img{
+  width:100%;
+  border-radius:12px;
+}
+
+/* products grid */
 .products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-    padding:30px;
-    max-width:1200px;
-    margin:auto;
+  flex:2;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:20px;
 }
 
-.card{
-    background:white;
-    border-radius:16px;
-    padding:15px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
-    transition:0.3s;
+.product{
+  background:white;
+  padding:15px;
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  text-align:center;
 }
 
-.card:hover{
-    transform:translateY(-6px);
-}
-
-.card img{
-    width:100%;
-    border-radius:12px;
+.product img{
+  width:100%;
+  border-radius:8px;
 }
 
 .price{
-    color:#ff6a00;
-    font-weight:bold;
-    font-size:18px;
+  font-weight:bold;
+  margin-top:8px;
 }
 
-button{
-    background:#ff6a00;
-    border:none;
-    padding:10px 15px;
-    color:white;
-    border-radius:10px;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-button:hover{
-    background:#e65c00;
-}
-
-/* FOOTER */
+/* footer */
 footer{
-    text-align:center;
-    padding:20px;
-    background:#111;
-    color:white;
-    margin-top:40px;
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:15px;
+  margin-top:40px;
+}
+
+/* responsive */
+@media (max-width:900px){
+  .vel-layout{
+    flex-direction:column;
+  }
+  .products{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width:500px){
+  .products{
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
@@ -110,27 +135,86 @@ footer{
 <body>
 
 <header>
-<h1>🛒 3DJV SHOP</h1>
-<nav>
-<a href="#">Domů</a>
-<a href="admin.html">Admin</a>
-<a href="vanoce/">Vánoce</a>
-<a href="velikonoce/">Velikonoce</a>
-</nav>
+  <h1>3DJV</h1>
+  <nav>
+    <a onclick="showHome()">Domů</a>
+    <a onclick="showEaster()">Velikonoce</a>
+  </nav>
 </header>
 
-<div class="hero">
-<h2>Moderní 3D tištěné produkty</h2>
-<p>Kvalitní modely ke stažení i objednání</p>
-</div>
+<section class="hero" id="home">
+  <h2>Moderní 3D tištěné produkty</h2>
+  <p>Kvalitní výrobky z 3D tiskárny</p>
+</section>
 
-<div class="products" id="productList"></div>
+<section id="velikonoce">
+  <div class="vel-layout">
+
+    <!-- PRODUCTS -->
+    <div class="products">
+
+      <div class="product">
+        <img src="kralici.png">
+        <p>Malý králík</p>
+        <div class="price">35 Kč</div>
+      </div>
+
+      <div class="product">
+        <img src="kralici.png">
+        <p>Velký králík</p>
+        <div class="price">45 Kč</div>
+      </div>
+
+      <!-- kopírováním přidáš další produkty -->
+      <div class="product">
+        <img src="kralici.png">
+        <p>Králík – barva na přání</p>
+        <div class="price">50 Kč</div>
+      </div>
+
+      <div class="product">
+        <img src="kralici.png">
+        <p>Králík XL</p>
+        <div class="price">60 Kč</div>
+      </div>
+
+      <div class="product">
+        <img src="kralici.png">
+        <p>Králík sada</p>
+        <div class="price">90 Kč</div>
+      </div>
+
+      <div class="product">
+        <img src="kralici.png">
+        <p>Králík dekorace</p>
+        <div class="price">40 Kč</div>
+      </div>
+
+    </div>
+
+    <!-- IMAGE -->
+    <div class="vel-image">
+      <img src="kralici.png">
+    </div>
+
+  </div>
+</section>
 
 <footer>
-© 2026 3DJV
+  © 2026 3DJV
 </footer>
 
-<script src="products.js"></script>
+<script>
+function showEaster(){
+  document.getElementById("home").style.display="none";
+  document.getElementById("velikonoce").style.display="block";
+}
+
+function showHome(){
+  document.getElementById("velikonoce").style.display="none";
+  document.getElementById("home").style.display="block";
+}
+</script>
 
 </body>
 </html>
