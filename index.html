@@ -6,35 +6,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-.product{
-  background:white;
-  padding:15px;
-  border-radius:12px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.1);
-  text-align:center;
-  .product:hover{
-  transform: scale(1.05);
-  transition: 0.2s;
-}
 
-}
-
-  *{
+/* RESET */
+*{
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
 
+/* BODY */
 body{
   font-family: Arial, sans-serif;
   background-image: url("äa.png");
-  background-repeat: no-repeat;      /* NEopakovat */
-  background-size: cover;             /* roztáhne přes celou plochu */
-  background-position: center center; /* vycentruje */
-  background-attachment: fixed;       /* drží pozadí při scrollu */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color:#333;
 }
 
+/* THINGIVERSE BUTTON */
+.thingiverse-link{
+  position:fixed;
+  top:10px;
+  left:10px;
+  background:#ff6a00;
+  color:white;
+  padding:10px 15px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+  z-index:1000;
 }
 
 /* HEADER */
@@ -65,8 +67,6 @@ nav a{
   padding:20px;
   background: rgba(255,255,255,0.9);
   border-radius:12px;
-}
-
 }
 
 .breadcrumb{
@@ -106,19 +106,18 @@ nav a{
   border-radius:12px;
   box-shadow:0 2px 8px rgba(0,0,0,0.1);
   text-align:center;
+  transition:0.2s;
+}
+
+.product:hover{
+  transform: scale(1.05);
 }
 
 .product img{
-  width:380px;        /* cca 10 cm */
-  max-width:100%;
+  width:100%;
   border-radius:8px;
   cursor:pointer;
-  margin:0 auto 10px;
-  display:block;
-}
-
-.product h3{
-  margin:10px 0 5px;
+  margin-bottom:10px;
 }
 
 .price{
@@ -180,10 +179,16 @@ footer{
     grid-template-columns:1fr;
   }
 }
+
 </style>
 </head>
 
 <body>
+
+<!-- THINGIVERSE ODKAZ -->
+<a class="thingiverse-link" href="https://www.thingiverse.com" target="_blank">
+Thingiverse
+</a>
 
 <header>
   <h1>3DJV</h1>
@@ -205,29 +210,28 @@ footer{
       <p>3D tištěné velikonoční dekorace a králíci.</p>
     </div>
     <div class="category-image">
-      <img src="kralik.jpg" alt="Velikonoce">
+      <img src="kralik.jpg">
     </div>
   </div>
 
-  <!-- PRODUKTY -->
   <div class="products">
 
     <div class="product">
-      <img src="kralik.jpg" alt="Malý králík" onclick="openLightbox(this.src)">
+      <img src="kralik.jpg" onclick="openLightbox(this.src)">
       <h3>Malý králík</h3>
       <div class="price">35 Kč</div>
       <a class="order-btn" href="mailto:vaskoj@seznam.cz?subject=Objednávka – Malý králík">Objednat</a>
     </div>
 
     <div class="product">
-      <img src="kralik.jpg" alt="Velký králík" onclick="openLightbox(this.src)">
+      <img src="kralik.jpg" onclick="openLightbox(this.src)">
       <h3>Velký králík</h3>
       <div class="price">45 Kč</div>
       <a class="order-btn" href="mailto:vaskoj@seznam.cz?subject=Objednávka – Velký králík">Objednat</a>
     </div>
 
     <div class="product">
-      <img src="kralik.jpg" alt="Králík set" onclick="openLightbox(this.src)">
+      <img src="kralik.jpg" onclick="openLightbox(this.src)">
       <h3>Králík set</h3>
       <div class="price">80 Kč</div>
       <a class="order-btn" href="mailto:vaskoj@seznam.cz?subject=Objednávka – Králík set">Objednat</a>
@@ -243,4 +247,19 @@ footer{
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img
+  <img id="lightbox-img">
+</div>
+
+<script>
+function openLightbox(src){
+  document.getElementById("lightbox").style.display="flex";
+  document.getElementById("lightbox-img").src=src;
+}
+
+function closeLightbox(){
+  document.getElementById("lightbox").style.display="none";
+}
+</script>
+
+</body>
+</html>
